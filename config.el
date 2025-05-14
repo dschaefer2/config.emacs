@@ -4,11 +4,13 @@
 ;; sync' after modifying this file!
 (setq confirm-kill-emacs nil)
 
+
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
 ;; clients, file templates and snippets. It is optional.
 ;; (setq user-full-name "John Doe"
 ;;       user-mail-address "john@doe.com")
 
+(setq doom-font (font-spec :family "JetBrainsMono NFM" :size 24))
 ;; Doom exposes five (optional) variables for controlling fonts in Doom:
 ;;
 ;; - `doom-font' -- the primary font to use

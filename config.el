@@ -2,13 +2,15 @@
 
 (setq confirm-kill-emacs nil)
 
-(setq doom-font (font-spec :family "JetBrainsMono NFM" :size 24))
+(setq doom-font (font-spec :family "JetBrainsMono NFM" :size 26))
 
 (setq doom-theme 'doom-tokyo-night)
 
 (setq display-line-numbers-type t)
 
 (setq org-directory "~/org/")
+
+(setq lsp-file-watch-threshold 2000)
 
 (use-package! verilog-mode
   :init

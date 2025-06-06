@@ -74,7 +74,14 @@
 ;; they are implemented.
 
 (use-package! lsp-mode
-  :hook ((verilog-mode . lsp)))
+  :hook ((verilog-mode . lsp))
+  :config
+  (setq lsp-file-watch-threshold 2000))
+
+(use-package! swift-mode
+  :config
+  (setq swift-mode:parenthesized-expression-offset 4
+        swift-mode:multiline-statement-offset 4))
 
 (use-package! verilog-mode
   :config

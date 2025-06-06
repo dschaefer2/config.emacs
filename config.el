@@ -1,8 +1,5 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
 (setq confirm-kill-emacs nil)
 
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
@@ -75,3 +72,22 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(use-package! lsp-mode
+  :hook ((verilog-mode . lsp)))
+
+(use-package! verilog-mode
+  :config
+  (setq verilog-indent-level             4
+        verilog-indent-level-module      4
+        verilog-indent-level-declaration 4
+        verilog-indent-level-behavioral  4
+        verilog-indent-level-directive   1
+        verilog-case-indent              2
+        verilog-auto-newline             t
+        verilog-auto-indent-on-newline   t
+        verilog-tab-always-indent        t
+        verilog-auto-endcomments         t
+        verilog-minimum-comment-distance 40
+        verilog-indent-begin-after-if    t
+        verilog-auto-lineup              'declarations))

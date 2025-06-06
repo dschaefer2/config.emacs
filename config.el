@@ -91,3 +91,6 @@
         verilog-minimum-comment-distance 40
         verilog-indent-begin-after-if    t
         verilog-auto-lineup              'declarations))
+
+(map! "C-c m m" #'+make/run-last
+      "C-c m n" #'+make/run)

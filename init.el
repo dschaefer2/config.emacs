@@ -1,6 +1,8 @@
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file :no-error-if-file-is-missing)
 
+(load (expand-file-name (concat user-emacs-directory "autoload.el")))
+
 (require 'package)
 (package-initialize)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
@@ -122,13 +124,10 @@
 (use-package yasnippet-capf
   :after cape yasnippet
   :config
-  (progn
-    (add-to-list 'completion-at-point-functions #'yasnippet-capf))
-  (progn
-    (defun my/eglot-capf-with-yasnippet ()
-      (setq-local completion-at-point-functions
-                  (list 
-		   (cape-capf-super
-		    #'eglot-completion-at-point
-		    #'yasnippet-capf)))))
-  :hook ('eglot-managed-mode-hook #'my/eglot-capf-with-yasnippet))
+  (add-to-list 'completion-at-point-functions #'yasnippet-capf)
+  :hook ('eglot-managed-mode-hook #'doug/eglot-capf-with-yasnippet))
+
+(use-package makefile-executor
+  :ensure t
+  :bind (("C-c m n" . doug/make-run)
+	 ("C-c m m" . doug/make-last)))

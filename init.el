@@ -3,6 +3,15 @@
 
 (load-theme 'modus-vivendi)
 (menu-bar-mode -1)
+(when (display-graphic-p)
+  (tool-bar-mode -1)
+  (scroll-bar-mode -1))
+
+(let ((mono-space-font "Cascadia Mono")
+      (proportionately-spaced-font "Sans"))
+  (set-face-attribute 'default nil :family mono-space-font :height 120)
+  (set-face-attribute 'fixed-pitch nil :family mono-space-font :height 1.0)
+  (set-face-attribute 'variable-pitch nil :family proportionately-spaced-font :height 1.0))
 
 (setq make-backup-files nil)
 

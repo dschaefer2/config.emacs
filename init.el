@@ -84,8 +84,7 @@
   :ensure nil
   :hook ((swift-mode . eglot-ensure)
 	 (verilog-mode . eglot-ensure))
-  :bind (("C-c C-g" . xref-find-definitions)
-	 ("C-c g" . xref-find-references))
+  :bind (("C-c ." . xref-find-references))
   :config
   (setq eglot-strict-mode nil)
   (add-to-list 'eglot-server-programs

@@ -6,6 +6,11 @@
 
 (setq make-backup-files nil)
 
+(use-package which-key
+  :ensure t
+  :config
+  (which-key-mode))
+
 (use-package vertico
   :ensure t
   :hook (after-init . vertico-mode))
@@ -84,7 +89,7 @@
   :ensure nil
   :hook ((swift-mode . eglot-ensure)
 	 (verilog-mode . eglot-ensure))
-  :bind (("C-c ." . xref-find-references))
+  :bind (("C-x ." . xref-find-references))
   :config
   (setq eglot-strict-mode nil)
   (add-to-list 'eglot-server-programs

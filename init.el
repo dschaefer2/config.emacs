@@ -69,10 +69,26 @@
   :config
   (setq swift-mode:parenthesized-expression-offset 4))
 
+(use-package verilog-mode
+  :ensure nil
+  :config
+  (setq verilog-indent-level 4)
+  (setq verilog-case-indent 4)
+  (setq verilog-cexp-indent 4)
+  (setq verilog-indent-level-module 4)
+  (setq verilog-indent-level-declaration 4)
+  (setq verilog-auto-newline nil)
+  (setq verilog-indent-lists nil))
+
 (use-package eglot
   :ensure nil
-  :hook ((swift-mode . eglot-ensure))
+  :hook ((swift-mode . eglot-ensure)
+	 (verilog-mode . eglot-ensure))
+  :bind (("C-c C-g" . xref-find-definitions)
+	 ("C-c g" . xref-find-references))
   :config
   (setq eglot-strict-mode nil)
   (add-to-list 'eglot-server-programs
-	       '(swift-mode . ("sourcekit-lsp"))))
+	       '(swift-mode . ("sourcekit-lsp")))
+  (add-to-list 'eglot-server-programs
+	       '(verilog-mode . ("verible-verilog-ls"))))
